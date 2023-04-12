@@ -9,12 +9,15 @@
   },
   "content_scripts": [
     {
-      "matches": ["*://google.com/*"],
-      "js": ["/lib/zepto.min.js", "/src/content.js"],
+      "matches": ["*://reddit.com/*"],
+      "run_at": "document_start",
+      "js": ["/src/jquery-3.2.1.min.js", "/src/content.js"],
       "all_frames": true
     }
   ],
   "browser_action": { "default_popup": "/src/popup.html" },
-  "permissions": ["*://google.com/*"],
+  "permissions": ["webRequest",
+    "webRequestBlocking",
+    "<all_urls>"],
   "content_security_policy": "script-src 'self' https://cdn.mxpnl.com; object-src 'self'"
 }
