@@ -10,7 +10,7 @@
   "content_scripts": [
     {
       "matches": ["*://reddit.com/*"],
-      "run_at": "document_start",
+      "run_at": "document_end",
       "js": ["/src/jquery-3.2.1.min.js", "/src/content.js"],
       "all_frames": true
     }
@@ -18,6 +18,10 @@
   "browser_action": { "default_popup": "/src/popup.html" },
   "permissions": ["webRequest",
     "webRequestBlocking",
-    "<all_urls>"],
+    "<all_urls>",
+    "activeTab",
+    "tabs",
+    "nativeMessaging"
+  ],
   "content_security_policy": "script-src 'self' https://cdn.mxpnl.com; object-src 'self'"
 }
